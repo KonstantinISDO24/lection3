@@ -1,5 +1,6 @@
-public interface RoomService {
-    void bookRoom(Room room);
-    void freeRoom(Room room);
-    void infoRoom(Room room);
+public interface RoomService<R extends Room> {
+    void cleanRoom(R room);
+    void reserveRoom(R room);
+    void freeRoom(R room);
+    void infoRoom(R room);
 }

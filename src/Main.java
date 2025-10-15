@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-            RoomService service = new RoomServiceImpl();
+            RoomService<Room> service = new RoomServiceImpl<>();
 
             Room economy = new EconomyRoom(123, 3, 1500);
             Room standart = new StandartRoom(213, 2, 2500);
@@ -11,11 +11,12 @@ public class Main {
 
 
             service.infoRoom(economy);
-            service.bookRoom(economy);
+            service.reserveRoom(economy);
             service.infoRoom(economy);
+            service.cleanRoom(economy);
 
             try {
-                service.bookRoom(economy);
+                service.reserveRoom(economy);
             } catch (RoomAlreadyBookedException e) {
                 System.out.println("Ошибка " + e.getMessage());
             }
@@ -24,9 +25,9 @@ public class Main {
             service.infoRoom(economy);
 
 
-            service.bookRoom(standart);
-            service.bookRoom(lux);
-            service.bookRoom(ultra);
+            service.reserveRoom(standart);
+            service.reserveRoom(lux);
+            service.reserveRoom(ultra);
 
             service.infoRoom(standart);
             service.infoRoom(lux);

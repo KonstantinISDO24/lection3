@@ -1,15 +1,20 @@
-public class RoomServiceImpl implements RoomService {
+public class RoomServiceImpl<R extends Room> implements RoomService<R> {
+
     @Override
-    public void bookRoom(Room room) {
+    public void cleanRoom(R room) {
+        System.out.println("Комната " + room.getNumbRoom() + " очищена.");
+    }
+    @Override
+    public void reserveRoom(R room) {
         if (room.isBooked()) {
-            throw new RoomAlreadyBookedException("Комната №" + room.getNumbRoom() + " уже забронирована!");
+            throw new RoomAlreadyBookedException("Комната " + room.getNumbRoom() + " уже забронирована!");
         }
         room.setBooked(true);
         System.out.println("Комната " + room.getNumbRoom() + " забронирована!");
     }
 
     @Override
-    public void freeRoom(Room room) {
+    public void freeRoom(R room) {
         if(!room.isBooked()) {
             System.out.println("Комната " + room.getNumbRoom() + " уже свободна.");
             return;
@@ -19,7 +24,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public void infoRoom(Room room) {
+    public void infoRoom(R room) {
         System.out.println(room.toString());
     }
 }
