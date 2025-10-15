@@ -23,6 +23,7 @@ public class Main {
             service.freeRoom(economy);
             service.infoRoom(economy);
 
+
             service.bookRoom(standart);
             service.bookRoom(lux);
             service.bookRoom(ultra);
@@ -30,5 +31,14 @@ public class Main {
             service.infoRoom(standart);
             service.infoRoom(lux);
             service.infoRoom(ultra);
+
+            service.freeRoom(standart);
+            service.freeRoom(lux);
+            service.freeRoom(ultra);
+
+            service.infoRoom(standart);
+            service.infoRoom(lux);
+            service.infoRoom(ultra);
+
         }
     }
